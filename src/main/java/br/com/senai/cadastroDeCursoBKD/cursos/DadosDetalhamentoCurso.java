@@ -3,9 +3,17 @@ package br.com.senai.cadastroDeCursoBKD.cursos;
 public record DadosDetalhamentoCurso(
         Long id,
         String nome,
-        Curso.Periodo periodo
+        String descricao,
+        Curso.Periodo periodo,
+        Boolean ativo
 ) {
     public DadosDetalhamentoCurso(Curso curso) {
-        this(curso.getId(), curso.getNome(), curso.getPeriodo());
+        this(
+                curso.getId(),
+                curso.getNome(),
+                curso.getDescricao(),
+                curso.getPeriodo(),
+                curso.isAtivo()
+        );
     }
 }
